@@ -29,6 +29,41 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 
 ![App Screenshot](https://cdn.discordapp.com/attachments/1293699765548351568/1293702268012728435/Screenshot_2024-10-10_00-31-44.png?ex=670855a0&is=67070420&hm=7a3efecf6b1d46d62aab162e0de71c14316dc7bd277eab285fac90f1b149da95&)
 
+# How to edit Settings.json
+
+| Parameter | Type          | Description or examples                                                    |
+| :------------------------ | :-------------- | :------------------------------------------------------- |
+| `WindowDimensions`        | `uint32_t`      | Size of application's window                             |
+| `TabletArea`              | `sf::FloatRect` | first two are offset. 0, 0, 152, 95 is default full area |
+| `TabletImageTransparency` | `uint8_t`       | Transparency of tablet's image  0-255                    |
+| `CursorSize`              | `float_t`       | Size of cursor                                           |
+| `CursorTrailSize`         | `float_t`       | Size of trail's circles                                  |
+| `CursorImage`             | `string`        | Path to cursor's image                                   |
+| `CursorTrailImage`        | `string`        | Path to cursor trail's image                             |
+| `CursorTrailDensity`      | `uint32_t`      | Number of circles in trail                               |
+| `TrailCirclesLifetime`    | `float_t`       | How long trail's circles stay on screen                  |
+| `CustomTablet`            | `bool`          | Condition if you're using custom tablet image            |
+| `CustomTabletImage`       | `string`        | Path to custom tablet image                              |
+| `CustomTabletSize`        |`sf::Vector2f`   | Real size of tablet in mm                                |
+| `CustomTabletImageOffset` |`sf::Vector2f`   | Offset in custom tablet image to active area             |
+| `CustomTabletActiveArea`  |`sf::Vector2f`   | Active area of custom tablet                             |
+
+### If you want to customize it you should set:
+
+- `CustomTablet` to `true`
+
+- `WindowDimensions` to yout custom tablet image size
+
+- `CustomTabletImage` to path of your custom image (you can also place it in the same folder and instead of full path just use name and extension of your custom image)
+
+- `CustomTabletSize` to full size of your custom tablet (you can find this in your tablet's website)
+
+- `CustomTabletActiveArea` to size of tablet active area in mm (you can also find this in your tablet's website)
+
+- `CustomTabletImageOffset` to position in your image where active area start (you can open image in paint and put cursor in left corner of tablest's active area and in left bottom corner of paint window you should be able to see coordinates)
+
+- `TabletArea` to your custom tablet area. First two value are x, y offset and the last ones are width and height of tablet area
+
 
 ## How to build
 
