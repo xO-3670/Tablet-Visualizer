@@ -11,6 +11,8 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://choosealicense.com/licenses/gpl-3.0/)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/55a8b6fbec384a7c974e34ee04daf00d)](https://app.codacy.com/gh/xO-3670/Tablet-Visualizer/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+![Release](https://img.shields.io/github/v/release/xO-3670/Tablet-Visualizer)
+
 
 ## Features
 
