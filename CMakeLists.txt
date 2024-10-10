@@ -12,9 +12,9 @@ file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/src/*.cpp")
 
 add_executable(TabletVisualizer "${MY_SOURCES}")
 
-target_link_libraries(TabletVisualizer "${CMAKE_SOURCE_DIR}/third_party/SFML/lib/sfml-graphics-s.lib")
-target_link_libraries(TabletVisualizer "${CMAKE_SOURCE_DIR}/third_party/SFML/lib/sfml-window-s.lib")
-target_link_libraries(TabletVisualizer "${CMAKE_SOURCE_DIR}/third_party/SFML/lib/sfml-system-s.lib")
+target_link_libraries(TabletVisualizer "${CMAKE_SOURCE_DIR}/third_party/SFML/lib/Release/sfml-graphics-s.lib")
+target_link_libraries(TabletVisualizer "${CMAKE_SOURCE_DIR}/third_party/SFML/lib/Release/sfml-window-s.lib")
+target_link_libraries(TabletVisualizer "${CMAKE_SOURCE_DIR}/third_party/SFML/lib/Release/sfml-system-s.lib")
 target_link_libraries(TabletVisualizer winmm.lib)
 target_link_libraries(TabletVisualizer gdi32.lib)
 target_link_libraries(TabletVisualizer opengl32.lib)
