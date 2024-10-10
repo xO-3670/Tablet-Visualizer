@@ -39,7 +39,7 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 
 - Second step: Build third party library SFML with static libraries (compile with release configuration)
 ```bash
-  cd "Tablet-Visualizer/third party/SFML" 
+  cd "Tablet-Visualizer/third_party/SFML" 
   cmake . -DBUILD_SHARED_LIBS=OFF
 ```
 
