@@ -1,0 +1,6 @@
+[submodule "third party/SFML"]
+	path = third party/SFML
+	url = https://github.com/SFML/SFML
+[submodule "third party/json"]
+	path = third party/json
+	url = https://github.com/nlohmann/json
