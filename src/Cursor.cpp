@@ -12,8 +12,7 @@ Cursor::Cursor(float_t cursorSize, uint32_t trailDensity, float_t sizeOfTrailCir
     _CursorBody.setFillColor(sf::Color(235,235,235, 255));
     _CursorBody.setTexture  (&cursorTexture);
 
-    _TrailCircles.resize(trailDensity, TrailCircle(_CursorBody.getPosition(), _TrailCirclesSize,  _CursorTrailTexturePtr)); // check if more efficient with allcations !!!!!
-}
+    _TrailCircles.resize(trailDensity, TrailCircle(_CursorBody.getPosition(), _TrailCirclesSize,  _CursorTrailTexturePtr));
 
 void Cursor::Update(sf::Vector2f cursorPosition)
 {
