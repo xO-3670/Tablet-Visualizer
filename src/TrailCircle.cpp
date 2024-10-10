@@ -8,9 +8,7 @@ TrailCircle::TrailCircle(sf::Vector2f cursorPosition, float& sizeOfTrailCircle, 
         _TrailBody.setTexture(trailTexture);
 
     _TrailBody.setRadius(sizeOfTrailCircle);
-    //_TrailBody.setFillColor(sf::Color::Red);
     _TrailBody.setOrigin(sizeOfTrailCircle, sizeOfTrailCircle);
-
     _TrailBody.setPosition(cursorPosition);
 }
 
