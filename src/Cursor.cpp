@@ -13,6 +13,7 @@ Cursor::Cursor(float_t cursorSize, uint32_t trailDensity, float_t sizeOfTrailCir
     _CursorBody.setTexture  (&cursorTexture);
 
     _TrailCircles.resize(trailDensity, TrailCircle(_CursorBody.getPosition(), _TrailCirclesSize,  _CursorTrailTexturePtr));
+}
 
 void Cursor::Update(sf::Vector2f cursorPosition)
 {
