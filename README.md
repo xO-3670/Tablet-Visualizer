@@ -18,9 +18,9 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 
 - Background of window is green
 
-- Converts mouse/stylus movements into a visual representation on a customizable tablet image surface.
+- Converts mouse/stylus movements into a visual representation on a customizable tablet image.
 
-- You can change the default tablet image to any image in the Settings.json file
+- You can change the default tablet and cursor image to any image in the Settings.json file
 
 - Modify cursor size, skin, and behavior (trail density, lifetime) in Settings.json
 ## Screenshots
