@@ -52,15 +52,15 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 
 - `CustomTablet` to `true`
 
-- `WindowDimensions` to yout custom tablet image size
+- `WindowDimensions` to your custom tablet image size
 
-- `CustomTabletImage` to path of your custom image (you can also place it in the same folder and instead of full path just use name and extension of your custom image)
+- `CustomTabletImage` to the path of your custom image (you can also place it in the same folder and instead of full path just use name and extension of your custom image)
 
-- `CustomTabletSize` to full size of your custom tablet (you can find this in your tablet's website)
+- `CustomTabletSize` to full size of your custom tablet in mm (you can find this in your tablet's website)
 
 - `CustomTabletActiveArea` to size of tablet active area in mm (you can also find this in your tablet's website)
 
-- `CustomTabletImageOffset` to position in your image where active area start (you can open image in paint and put cursor in left corner of tablest's active area and in left bottom corner of paint window you should be able to see coordinates)
+- `CustomTabletImageOffset` to position in your image where active area start (you can open image in paint and put cursor in left corner of tablet's active area and in left bottom corner of paint window you should be able to see coordinates)
 
 - `TabletArea` to your custom tablet area. First two value are x, y offset and the last ones are width and height of tablet area
 
