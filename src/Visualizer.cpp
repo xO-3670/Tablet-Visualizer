@@ -23,7 +23,7 @@ bool Visualizer::_LoadSettingsFile()
     Settings       settings = {};
 
     std::ifstream  SettingsFileStream("Settings.json");
-	SettingsFile = nlohmann::json::parse(SettingsFileStream);;
+	SettingsFile = nlohmann::json::parse(SettingsFileStream);
 
 
     settings.CustomTablet = SettingsFile["CustomTablet"];
