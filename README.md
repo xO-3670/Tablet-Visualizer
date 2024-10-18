@@ -27,7 +27,7 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 
 ![App Screenshot](https://cdn.discordapp.com/attachments/1293699765548351568/1293699779280371804/image.png?ex=6708534f&is=670701cf&hm=0c72e1dae38f6af2aa2bb4d3fc076343c4e6bccb027a5fa131afb4ae10e0e76d&)
 
-![App Screenshot](https://cdn.discordapp.com/attachments/1293699765548351568/1293702268012728435/Screenshot_2024-10-10_00-31-44.png?ex=670855a0&is=67070420&hm=7a3efecf6b1d46d62aab162e0de71c14316dc7bd277eab285fac90f1b149da95&)
+![App Screenshot](https://cdn.discordapp.com/attachments/1293699765548351568/1293702268012728435/Screenshot_2024-10-10_00-31-44.png?ex=6712e1a0&is=67119020&hm=b9d665a058d97cf3cffac4670be643a777c63ba476e4ba0987056852034f66f6&)
 
 # How to edit Settings.json
 
