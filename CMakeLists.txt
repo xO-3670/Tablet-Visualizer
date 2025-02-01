@@ -1,26 +1,33 @@
+cmake_minimum_required(VERSION 3.27)
+project("Tablet-Visualizer" LANGUAGES CXX)
 
-cmake_minimum_required(VERSION 3.5)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
-set(CMAKE_CXX_STANDARD 20)
+include(FetchContent)
+include(ExternalProject)
 
-add_compile_definitions(SFML_STATIC)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY $<1:${CMAKE_SOURCE_DIR}>)
+FetchContent_Declare(SFML
+    GIT_REPOSITORY https://github.com/SFML/SFML.git
+    GIT_TAG 2.6.x
+    GIT_SHALLOW ON
+    EXCLUDE_FROM_ALL
+    SYSTEM
+)
+FetchContent_MakeAvailable(SFML)
+FetchContent_Declare(nlohmann_json
+    GIT_REPOSITORY https://github.com/nlohmann/json.git
+    GIT_TAG v3.11.2
+)
+set(JSON_BuildTests OFF)
+set(JSON_BuildTests_INIT OFF)
+FetchContent_MakeAvailable(nlohmann_json)
 
-project("Tablet-Visualizer")
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/src/*.cpp")
 
-file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/src/*.cpp")
+add_executable(main ${SOURCES})
+target_link_libraries(main PRIVATE sfml-graphics)
+target_compile_features(main PRIVATE cxx_std_20)
 
-add_executable(TabletVisualizer "${MY_SOURCES}")
+target_link_libraries(main PRIVATE nlohmann_json::nlohmann_json)
 
-target_link_libraries(TabletVisualizer "${CMAKE_SOURCE_DIR}/third_party/SFML/lib/Release/sfml-graphics-s.lib")
-target_link_libraries(TabletVisualizer "${CMAKE_SOURCE_DIR}/third_party/SFML/lib/Release/sfml-window-s.lib")
-target_link_libraries(TabletVisualizer "${CMAKE_SOURCE_DIR}/third_party/SFML/lib/Release/sfml-system-s.lib")
-target_link_libraries(TabletVisualizer winmm.lib)
-target_link_libraries(TabletVisualizer gdi32.lib)
-target_link_libraries(TabletVisualizer opengl32.lib)
-
-
-include_directories("${CMAKE_SOURCE_DIR}/third_party/SFML/include")
-include_directories("${CMAKE_SOURCE_DIR}/third_party/json/include")
-
-include_directories(${CMAKE_SOURCE_DIR})

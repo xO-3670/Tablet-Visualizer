@@ -25,9 +25,9 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 - Modify cursor size, skin, and behavior (trail density, lifetime) in `Settings.json`
 ## Screenshots
 
-![App Screenshot](https://cdn.discordapp.com/attachments/1293699765548351568/1293699779280371804/image.png?ex=6708534f&is=670701cf&hm=0c72e1dae38f6af2aa2bb4d3fc076343c4e6bccb027a5fa131afb4ae10e0e76d&)
+![App Screenshot](Screenshot1.png)
 
-![App Screenshot](https://cdn.discordapp.com/attachments/1293699765548351568/1293702268012728435/Screenshot_2024-10-10_00-31-44.png?ex=6712e1a0&is=67119020&hm=b9d665a058d97cf3cffac4670be643a777c63ba476e4ba0987056852034f66f6&)
+![App Screenshot](Screenshot2.png)
 
 # How to edit Settings.json
 
@@ -69,19 +69,12 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 
 - First step: Download source
 ```bash
-  git clone --recursive https://github.com/xO-3670/Tablet-Visualizer.git
+  git clone https://github.com/xO-3670/Tablet-Visualizer.git
 ```
 
-- Second step: Build third party library SFML with static libraries (compile with release configuration)
+- Second step: Create build folder and build
 ```bash
-  cd "Tablet-Visualizer/third_party/SFML" 
-  cmake . -DBUILD_SHARED_LIBS=OFF
-```
-
-- Last step: go back to Tablet-Visualizer and build it
-```bash
-  cd ../../
-  mkdir build
-  cd build
+  mkdir build && cd build
   cmake ..
 ```
+
