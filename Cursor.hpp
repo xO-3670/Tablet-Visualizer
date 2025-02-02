@@ -12,7 +12,7 @@
 class Cursor : public sf::Drawable
 {
 public:
-    Cursor() = default;
+    Cursor();
     Cursor(float_t cursorSize, uint32_t trailDensity, float_t sizeOfTrailCircles, float_t trailCirclesLifetime ,sf::Texture& cursorTexture, sf::Texture& cursorTrailTexture);
     ~Cursor() = default;
 

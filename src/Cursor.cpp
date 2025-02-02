@@ -1,6 +1,11 @@
 
 #include "../Cursor.hpp"
 
+Cursor::Cursor()
+: _CursorTrailTexturePtr(nullptr)
+{
+
+}
 
 Cursor::Cursor(float_t cursorSize, uint32_t trailDensity, float_t sizeOfTrailCircles, float_t trailCirclesLifetime ,sf::Texture& cursorTexture, sf::Texture& cursorTrailTexture)
 : _TrailDensity(trailDensity),
