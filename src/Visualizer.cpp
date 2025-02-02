@@ -2,6 +2,7 @@
 
 
 Visualizer::Visualizer()
+: _IsTabletCustom(false)
 {
 }
 
