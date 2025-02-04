@@ -26,6 +26,7 @@ struct Settings
     uint8_t             TabletImageTransparency;
 
     bool                CustomTablet;
+    bool                EnableErrors;
 
     sf::Vector2f        CustomTabletActiveArea;
     sf::Vector2f        CustomTabletSize;
@@ -73,6 +74,7 @@ private:
     Cursor           _Cursor;
 
     bool             _IsTabletCustom;
+    bool             _EnableErrors;
 };
 
 
