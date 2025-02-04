@@ -13,6 +13,9 @@ void Visualizer::Init()
     else
         ShowWindow(GetConsoleWindow(), SW_SHOW);
 
+    if (_EnableErrors == false) // Manually disable errors console in Settings.json
+        ShowWindow(GetConsoleWindow(), SW_HIDE);
+
     _DesktopDimensions = _GetDesktopDimensions();
 }
 
@@ -35,6 +38,7 @@ bool Visualizer::_LoadSettingsFile()
     settings.CursorTrailTexture   = SettingsFile["CursorTrailImage"];
     settings.CursorTrailDensity   = SettingsFile["CursorTrailDensity"];
     settings.TrailCirclesLifetime = SettingsFile["TrailCirclesLifetime"];
+    settings.EnableErrors         = SettingsFile["EnableErrors"];
 
     settings.TabletImageTransparency = SettingsFile["TabletImageTransparency"];
 
@@ -148,8 +152,9 @@ bool Visualizer::_CheckForErrors(Settings &settings, bool& loadingStatus)
 void Visualizer::_ApplySettings(Settings settings)
 {
     _Window.create(sf::VideoMode(settings.WindowDimensions.x, settings.WindowDimensions.y), "Tablet visualizer", sf::Style::Close);
-    _Window.setFramerateLimit(90);
+    _Window.setFramerateLimit(100);
 
+    _EnableErrors    = settings.EnableErrors;
     _IsTabletCustom  = settings.CustomTablet;
     _TabletPlayfield = settings.TabletArea;
     
