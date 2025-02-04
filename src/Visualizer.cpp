@@ -31,6 +31,7 @@ bool Visualizer::_LoadSettingsFile()
 
 
     settings.CustomTablet = SettingsFile["CustomTablet"];
+    settings.EnableErrors         = SettingsFile["EnableErrors"];
 
     settings.CursorSize           = SettingsFile["CursorSize"];
     settings.CursorTrailSize      = SettingsFile["CursorTrailSize"];
@@ -38,7 +39,7 @@ bool Visualizer::_LoadSettingsFile()
     settings.CursorTrailTexture   = SettingsFile["CursorTrailImage"];
     settings.CursorTrailDensity   = SettingsFile["CursorTrailDensity"];
     settings.TrailCirclesLifetime = SettingsFile["TrailCirclesLifetime"];
-    settings.EnableErrors         = SettingsFile["EnableErrors"];
+    settings.FramerateLimit       = SettingsFile["FramerateLimit"];
 
     settings.TabletImageTransparency = SettingsFile["TabletImageTransparency"];
 
@@ -96,6 +97,13 @@ bool Visualizer::_LoadSettingsFile()
 bool Visualizer::_CheckForErrors(Settings &settings, bool& loadingStatus)
 {
 
+    if (settings.FramerateLimit <= 0)
+    {
+        settings.FramerateLimit = 30;
+        std::cerr << "Framerate limit is 0 or lower!!!\nAutomatically setting to 30\n";
+        loadingStatus = false;
+    }
+
     if (settings.CursorSize == 0)
     {
         std::cerr << "Incorrect cursor size!!!\n";
@@ -152,7 +160,7 @@ bool Visualizer::_CheckForErrors(Settings &settings, bool& loadingStatus)
 void Visualizer::_ApplySettings(Settings settings)
 {
     _Window.create(sf::VideoMode(settings.WindowDimensions.x, settings.WindowDimensions.y), "Tablet visualizer", sf::Style::Close);
-    _Window.setFramerateLimit(100);
+    _Window.setFramerateLimit(settings.FramerateLimit);
 
     _EnableErrors    = settings.EnableErrors;
     _IsTabletCustom  = settings.CustomTablet;
