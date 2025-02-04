@@ -31,5 +31,6 @@
     "CustomTabletActiveArea": [
         152,
         95
-    ]
+    ],
+    "EnableErrors": true
 }
