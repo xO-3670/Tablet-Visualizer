@@ -20,6 +20,7 @@ struct Settings
     float_t             CursorTrailSize;
     float_t             TrailCirclesLifetime;
     uint32_t            CursorTrailDensity;
+    uint32_t            FramerateLimit;
     std::string         CursorTexture;
     std::string         CursorTrailTexture;
 
