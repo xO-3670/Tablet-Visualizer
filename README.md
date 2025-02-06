@@ -34,16 +34,18 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 | Parameter | Type          | Description or examples                                                    |
 | :------------------------ | :-------------- | :------------------------------------------------------- |
 | `WindowDimensions`        | `uint32_t`      | Size of application's window                             |
-| `TabletArea`              | `sf::FloatRect` | first two are offset. 0, 0, 152, 95 is default full area |
+| `CursorTrailDensity`      | `uint32_t`      | Number of circles in trail                               |
+| `FramerateLimit`          | `uint32_t`      | Increasing framerate will increase cpu usage default: 90 |
 | `TabletImageTransparency` | `uint8_t`       | Transparency of tablet's image  0-255                    |
+| `TabletArea`              | `sf::FloatRect` | first two are offset. 0, 0, 152, 95 is default full area |
 | `CursorSize`              | `float_t`       | Size of cursor                                           |
 | `CursorTrailSize`         | `float_t`       | Size of trail's circles                                  |
+| `TrailCirclesLifetime`    | `float_t`       | How long trail's circles stay on screen                  |
 | `CursorImage`             | `string`        | Path to cursor's image                                   |
 | `CursorTrailImage`        | `string`        | Path to cursor trail's image                             |
-| `CursorTrailDensity`      | `uint32_t`      | Number of circles in trail                               |
-| `TrailCirclesLifetime`    | `float_t`       | How long trail's circles stay on screen                  |
-| `CustomTablet`            | `bool`          | Condition if you're using custom tablet image            |
 | `CustomTabletImage`       | `string`        | Path to custom tablet image                              |
+| `CustomTablet`            | `bool`          | Condition if you're using custom tablet image            |
+| `EnableErrors`            | `bool`          | Condition if console with errors will show default: true |
 | `CustomTabletSize`        |`sf::Vector2f`   | Real size of tablet in mm                                |
 | `CustomTabletImageOffset` |`sf::Vector2f`   | Offset in custom tablet image to active area             |
 | `CustomTabletActiveArea`  |`sf::Vector2f`   | Active area of custom tablet                             |
