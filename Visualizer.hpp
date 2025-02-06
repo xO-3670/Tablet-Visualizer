@@ -78,5 +78,4 @@ private:
     bool             _EnableErrors;
 };
 
-
 #endif

@@ -27,11 +27,11 @@ private:
     sf::CircleShape _CursorBody;
 
     std::vector<TrailCircle> _TrailCircles;
-    sf::Texture*            _CursorTrailTexturePtr;
+    sf::Texture*             _CursorTrailTexturePtr;
 
     uint16_t _TrailDensity;
     float_t  _TrailCirclesSize;
-    float_t  _TrailCirclesLifetime = 70.f;
+    float_t  _TrailCirclesLifetime;
 
 };
 

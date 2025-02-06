@@ -2,7 +2,10 @@
 #include "../Cursor.hpp"
 
 Cursor::Cursor()
-: _CursorTrailTexturePtr(nullptr)
+: _CursorTrailTexturePtr(nullptr),
+  _TrailCirclesLifetime(0),
+  _TrailCirclesSize(0),
+  _TrailDensity(0)
 {
 
 }
@@ -10,7 +13,8 @@ Cursor::Cursor()
 Cursor::Cursor(float_t cursorSize, uint32_t trailDensity, float_t sizeOfTrailCircles, float_t trailCirclesLifetime ,sf::Texture& cursorTexture, sf::Texture& cursorTrailTexture)
 : _TrailDensity(trailDensity),
   _TrailCirclesSize(sizeOfTrailCircles),
-  _CursorTrailTexturePtr(&cursorTrailTexture)
+  _CursorTrailTexturePtr(&cursorTrailTexture),
+  _TrailCirclesLifetime(trailCirclesLifetime)
 {
     _CursorBody.setRadius   (cursorSize);
     _CursorBody.setOrigin   (_CursorBody.getRadius(), _CursorBody.getRadius());
