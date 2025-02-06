@@ -15,8 +15,9 @@
     "CursorTrailSize": 8,
     "CursorImage": "Cursor.png",
     "CursorTrailImage": "CursorTrail.png",
-    "CursorTrailDensity": 64,
-    "TrailCirclesLifetime": 75.0,
+    "CursorTrailDensity": 110,
+    "TrailCirclesLifetime": 95.0,
+    "FramerateLimit": 120,
 
     "CustomTablet": false,
     "CustomTabletImage": "ctl-472-s.png",
@@ -31,5 +32,6 @@
     "CustomTabletActiveArea": [
         152,
         95
-    ]
+    ],
+    "EnableErrors": true
 }
