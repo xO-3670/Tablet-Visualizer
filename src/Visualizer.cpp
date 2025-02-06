@@ -29,25 +29,39 @@ bool Visualizer::_LoadSettingsFile()
     std::ifstream  SettingsFileStream("Settings.json");
 	SettingsFile = nlohmann::json::parse(SettingsFileStream);
 
-
-    settings.CustomTablet = SettingsFile["CustomTablet"];
+    // bool values
+    settings.CustomTablet         = SettingsFile["CustomTablet"];
     settings.EnableErrors         = SettingsFile["EnableErrors"];
 
+    // float values
     settings.CursorSize           = SettingsFile["CursorSize"];
     settings.CursorTrailSize      = SettingsFile["CursorTrailSize"];
-    settings.CursorTexture        = SettingsFile["CursorImage"];
-    settings.CursorTrailTexture   = SettingsFile["CursorTrailImage"];
-    settings.CursorTrailDensity   = SettingsFile["CursorTrailDensity"];
     settings.TrailCirclesLifetime = SettingsFile["TrailCirclesLifetime"];
+
+    // uint32_t
+    settings.CursorTrailDensity   = SettingsFile["CursorTrailDensity"];
     settings.FramerateLimit       = SettingsFile["FramerateLimit"];
 
+    // uint8_t values
     settings.TabletImageTransparency = SettingsFile["TabletImageTransparency"];
+
+    // string path
+    settings.CursorTexture        = SettingsFile["CursorImage"];
+    settings.CursorTrailTexture   = SettingsFile["CursorTrailImage"];
 
     settings.WindowDimensions = sf::Vector2i(
             SettingsFile["WindowDimensions"].at(0),
             SettingsFile["WindowDimensions"].at(1)
     );
 
+    settings.TabletArea = sf::FloatRect(
+        SettingsFile["TabletArea"].at(0),
+        SettingsFile["TabletArea"].at(1),
+        SettingsFile["TabletArea"].at(2),
+        SettingsFile["TabletArea"].at(3)
+    );
+
+    // if user wants to use their own tablet image and data this is loaded
     if (settings.CustomTablet)
     {
         settings.CustomTabletSize = sf::Vector2f(
@@ -67,7 +81,7 @@ bool Visualizer::_LoadSettingsFile()
 
         settings.CustomTabletImage = SettingsFile["CustomTabletImage"];
     }
-    else
+    else // if user don't use custom tablet, default image is loaded
     {
         if (!_TabletTexture.loadFromFile("ctl-472-s.png"))
         {
@@ -75,13 +89,6 @@ bool Visualizer::_LoadSettingsFile()
             LoadingStatus = false;
         }
     }
-
-    settings.TabletArea = sf::FloatRect(
-        SettingsFile["TabletArea"].at(0),
-        SettingsFile["TabletArea"].at(1),
-        SettingsFile["TabletArea"].at(2),
-        SettingsFile["TabletArea"].at(3)
-    );
 
     if (settings.CursorTexture != "")
         _CursorTexture.loadFromFile(settings.CursorTexture);
@@ -157,7 +164,7 @@ bool Visualizer::_CheckForErrors(Settings &settings, bool& loadingStatus)
     return loadingStatus;
 }
 
-void Visualizer::_ApplySettings(Settings settings)
+void Visualizer::_ApplySettings(Settings settings) // this function exist so Settings struct is destroyed after being used for storing data
 {
     _Window.create(sf::VideoMode(settings.WindowDimensions.x, settings.WindowDimensions.y), "Tablet visualizer", sf::Style::Close);
     _Window.setFramerateLimit(settings.FramerateLimit);
@@ -242,8 +249,8 @@ void Visualizer::Update()
 void Visualizer::_Render()
 {
     _Window.clear(sf::Color::Green);
+    
     _Window.draw(_TabletSprite);
-
     _Window.draw(_Cursor);
 
     _Window.display();
@@ -251,7 +258,6 @@ void Visualizer::_Render()
 
 sf::Vector2i Visualizer::_GetDesktopDimensions()
 {
-
     RECT desktop;
 
 	const HWND hDesktop = GetDesktopWindow();
