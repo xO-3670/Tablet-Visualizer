@@ -15,8 +15,8 @@
     "CursorTrailSize": 8,
     "CursorImage": "Cursor.png",
     "CursorTrailImage": "CursorTrail.png",
-    "CursorTrailDensity": 110,
-    "TrailCirclesLifetime": 95.0,
+    "CursorTrailDensity": 86,
+    "TrailCirclesLifetime": 75.0,
     "FramerateLimit": 120,
 
     "CustomTablet": false,
