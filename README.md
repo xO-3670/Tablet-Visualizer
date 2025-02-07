@@ -35,7 +35,7 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 | :------------------------ | :-------------- | :------------------------------------------------------- |
 | `WindowDimensions`        | `uint32_t`      | Size of application's window                             |
 | `CursorTrailDensity`      | `uint32_t`      | Number of circles in trail                               |
-| `FramerateLimit`          | `uint32_t`      | Increasing framerate will increase cpu usage default: 90 |
+| `FramerateLimit`          | `uint32_t`      | Applying high limit will increase cpu usage default: 120 |
 | `TabletImageTransparency` | `uint8_t`       | Transparency of tablet's image  0-255                    |
 | `TabletArea`              | `sf::FloatRect` | first two are offset. 0, 0, 152, 95 is default full area |
 | `CursorSize`              | `float_t`       | Size of cursor                                           |
