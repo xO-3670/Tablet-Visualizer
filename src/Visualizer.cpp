@@ -2,7 +2,8 @@
 
 
 Visualizer::Visualizer()
-: _IsTabletCustom(false)
+: _IsTabletCustom(false),
+  _DesktopDimensions({0,0})
 {
 }
 
