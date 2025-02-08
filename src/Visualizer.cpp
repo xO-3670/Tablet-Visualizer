@@ -238,9 +238,9 @@ void Visualizer::Update()
     {
         _HandleEvents();
 
-        _Cursor.Update(sf::Vector2f(// Get mouse position     //Take x from mouse position and convert it to sfml window coords and make it move only in tablet area   // Add offset so it shows that cursor moves in tablet active area + offset from users's area
-            (_Window.mapPixelToCoords(sf::Vector2i(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y)).x * (float(_TabletPlayfield.width)  / float(_DesktopDimensions.x))) + _TabletImageOffset.x + _TabletPlayfield.left,
-            (_Window.mapPixelToCoords(sf::Vector2i(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y)).y * (float(_TabletPlayfield.height) / float(_DesktopDimensions.y))) + _TabletImageOffset.y + _TabletPlayfield.top
+        _Cursor.Update(sf::Vector2f(// Get mouse position // Take x from mouse position and convert it to sfml window coords // make it move only in tablet area // Add offset so it shows that cursor moves in tablet active area + offset from users's area
+            (_Window.mapPixelToCoords(sf::Vector2i(sf::Mouse::getPosition().x, 0)).x * (_TabletPlayfield.width  / static_cast<float>(_DesktopDimensions.x))) + _TabletImageOffset.x + _TabletPlayfield.left,
+            (_Window.mapPixelToCoords(sf::Vector2i(0, sf::Mouse::getPosition().y)).y * (_TabletPlayfield.height / static_cast<float>(_DesktopDimensions.y))) + _TabletImageOffset.y + _TabletPlayfield.top
         ));
 
         _Render();
