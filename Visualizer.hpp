@@ -58,7 +58,7 @@ private:
     sf::RenderWindow _Window;
     sf::Event        _WindowEvent;
 
-    sf::Vector2i     _DesktopDimensions = {0, 0};
+    sf::Vector2i     _DesktopDimensions;
     sf::FloatRect    _TabletPlayfield;
 
     sf::Vector2f     _TabletImageOffset;
