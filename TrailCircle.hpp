@@ -1,5 +1,5 @@
-#ifndef TRAILCIRCLE_HPP
-#define TRAILCIRCLE_HPP
+#ifndef TRAILCIRCLE
+#define TRAILCIRCLE
 
 #include <SFML\Graphics.hpp>
 
@@ -11,8 +11,8 @@ public:
     TrailCircle(sf::Vector2f cursorPosition, float& sizeOfTrailCircle, sf::Texture* trailTexture = nullptr);
     ~TrailCircle() = default;
 
-    sf::Int32 GetLifetime();
-    sf::Vector2f GetPosition();
+    const sf::Int32     GetLifetime();
+    const sf::Vector2f& GetPosition();
 
 private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states)const;
@@ -23,4 +23,4 @@ private:
 
 };
 
-#endif
+#endif /* TRAILCIRCLE */

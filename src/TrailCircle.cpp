@@ -12,12 +12,12 @@ TrailCircle::TrailCircle(sf::Vector2f cursorPosition, float& sizeOfTrailCircle, 
     _TrailBody.setPosition(cursorPosition);
 }
 
-sf::Int32 TrailCircle::GetLifetime()
+const sf::Int32 TrailCircle::GetLifetime()
 {
     return _Lifetime.getElapsedTime().asMilliseconds();
 }
 
-sf::Vector2f TrailCircle::GetPosition()
+const sf::Vector2f& TrailCircle::GetPosition()
 {
     return _TrailBody.getPosition();
 }
