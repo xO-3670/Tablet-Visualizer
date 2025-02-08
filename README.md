@@ -1,5 +1,5 @@
 
-# Tablet Visualizer for osu
+# Tablet Visualizer for osu!
 
 Tablet Visualizer is a lightweight application designed to function as an overlay for OBS . It simulates a graphic tablet's surface and shows real-time input based on your mouse or tablet stylus movements. You can easily customize the entire program visuals by modifying `Settings.json` file.
 
