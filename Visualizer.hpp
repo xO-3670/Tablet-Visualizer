@@ -68,10 +68,10 @@ private:
     void _HandleEvents();
     void _Render();
 
-#ifdef __unix__
+#if WindowsOS == 0
     sf::Vector2i _GetDesktopDimensionsLinux();
 #endif
-#if defined(_WIN32) || defined(WIN32)
+#if WindowsOS == 1
     sf::Vector2i _GetDesktopDimensions();
 #endif
 

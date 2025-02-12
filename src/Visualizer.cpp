@@ -263,6 +263,7 @@ void TVis::Visualizer::_Render()
     _Window.display();
 }
 
+#if WindowsOS == 0
 sf::Vector2i TVis::Visualizer::_GetDesktopDimensionsLinux()
 {
     Display* display = XOpenDisplay(NULL);
@@ -270,6 +271,7 @@ sf::Vector2i TVis::Visualizer::_GetDesktopDimensionsLinux()
 
     return sf::Vector2i(screen->width, screen->height);
 }
+#endif
 
 #if WindowsOS == 1
 sf::Vector2i TVis::Visualizer::_GetDesktopDimensions()
