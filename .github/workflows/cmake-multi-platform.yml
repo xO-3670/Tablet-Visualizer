@@ -47,9 +47,9 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install X11 libraries on Ubuntu
+    - name: Install dependencies on Ubuntu
       if: ${{matrix.os}} == 'Linux' && contains(runner.os, 'Ubuntu')
-      run: sudo apt-get update && sudo apt-get install -y libx11-dev libgl1-mesa-dev libglu1-mesa-dev libgles2-mesa-dev
+      run: sudo apt-get update && sudo apt-get install -y libx11-dev libgl1-mesa-dev libglu1-mesa-dev libgles2-mesa-dev libudev-dev
 
 
     - name: Set reusable strings
