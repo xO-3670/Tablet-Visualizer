@@ -44,7 +44,7 @@ target_include_directories(main PRIVATE ${OPENAL_INCLUDE_DIR})
 target_link_libraries(main PRIVATE ${X11_LIBRARIES})
 target_link_libraries(main PRIVATE OpenGL::OpenGL)
 target_link_libraries(main PRIVATE ${UDEV_LIBRARY})
-target_link_libraries(main ${OPENGL_opengl_LIBRARY} ${OPENGL_glx_LIBRARY})
+target_link_libraries(main PRIVATE ${OPENGL_opengl_LIBRARY})
 target_link_libraries(main PRIVATE ${OPENAL_LIBRARY})
 endif (UNIX)
 
