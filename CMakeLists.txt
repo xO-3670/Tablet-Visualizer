@@ -29,10 +29,15 @@ add_executable(main ${SOURCES})
 
 if (UNIX)
 find_package(X11 REQUIRED)
+find_package(OpenGL REQUIRED)
 
 include_directories(${X11_INCLUDE_DIR})
 link_directories(${X11_LIBRARIES})
+target_include_directories(main PRIVATE ${OPENGL_INCLUDE_DIR})
+target_link_libraries(main ${OPENGL_opengl_LIBRARY} ${OPENGL_glx_LIBRARY})
+
 target_link_libraries(main PRIVATE ${X11_LIBRARIES})
+target_link_libraries(main PRIVATE OpenGL::OpenGL)
 endif (UNIX)
 
 target_link_libraries(main PRIVATE sfml-graphics)
