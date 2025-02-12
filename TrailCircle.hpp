@@ -1,10 +1,12 @@
 #ifndef TRAILCIRCLE
 #define TRAILCIRCLE
 
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 #include <math.h>
 
+namespace TVis
+{
 class TrailCircle : public sf::Drawable
 {
 public:
@@ -22,5 +24,6 @@ private:
     sf::Clock       _Lifetime;
 
 };
+}
 
 #endif /* TRAILCIRCLE */
