@@ -1,16 +1,32 @@
 #ifndef VISUALIZER_HPP
 #define VISUALIZER_HPP
 
-#include <SFML\Graphics.hpp>
-#include <nlohmann\json.hpp>
+#include <SFML/Graphics.hpp>
+#include <nlohmann/json.hpp>
 
 #include <iostream>
-#include <Windows.h>
 #include <fstream>
+
+#if defined(_WIN32) || defined(WIN32)
+
+#include <Windows.h>
+
+#define WindowsOS 1
+#endif
+
+#ifdef __unix__
+
+#include <unistd.h>
+#include <X11/Xlib.h>
+
+#define WindowsOS 0
+#endif
 
 #include "Cursor.hpp"
 
 
+namespace TVis
+{
 struct Settings
 {
     sf::Vector2i        WindowDimensions;
@@ -52,7 +68,12 @@ private:
     void _HandleEvents();
     void _Render();
 
+#ifdef __unix__
+    sf::Vector2i _GetDesktopDimensionsLinux();
+#endif
+#if defined(_WIN32) || defined(WIN32)
     sf::Vector2i _GetDesktopDimensions();
+#endif
 
 private:
     sf::RenderWindow _Window;
@@ -77,5 +98,6 @@ private:
     bool             _IsTabletCustom;
     bool             _EnableErrors;
 };
+}
 
 #endif

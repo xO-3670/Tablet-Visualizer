@@ -1,14 +1,15 @@
 #include "../Visualizer.hpp"
 
 
-Visualizer::Visualizer()
+TVis::Visualizer::Visualizer()
 : _IsTabletCustom(false),
   _DesktopDimensions({0,0})
 {
 }
 
-void Visualizer::Init()
+void TVis::Visualizer::Init()
 {
+#if WindowsOS == 1
     if (_LoadSettingsFile())
         ShowWindow(GetConsoleWindow(), SW_HIDE);
     else
@@ -18,9 +19,18 @@ void Visualizer::Init()
         ShowWindow(GetConsoleWindow(), SW_HIDE);
 
     _DesktopDimensions = _GetDesktopDimensions();
+#endif
+#ifdef __unix__
+    if (!_LoadSettingsFile())
+    {
+        std::cout << "Error while loading settings file!!!\n";
+    }
+
+    _DesktopDimensions = _GetDesktopDimensionsLinux();
+#endif
 }
 
-bool Visualizer::_LoadSettingsFile()
+bool TVis::Visualizer::_LoadSettingsFile()
 {
     bool LoadingStatus = true;
 
@@ -102,7 +112,7 @@ bool Visualizer::_LoadSettingsFile()
     return LoadingStatus;
 }
 
-bool Visualizer::_CheckForErrors(Settings &settings, bool& loadingStatus)
+bool TVis::Visualizer::_CheckForErrors(Settings &settings, bool& loadingStatus)
 {
 
     if (settings.FramerateLimit <= 0)
@@ -165,7 +175,7 @@ bool Visualizer::_CheckForErrors(Settings &settings, bool& loadingStatus)
     return loadingStatus;
 }
 
-void Visualizer::_ApplySettings(Settings settings) // this function exist so Settings struct is destroyed after being used for storing data
+void TVis::Visualizer::_ApplySettings(Settings settings) // this function exist so Settings struct is destroyed after being used for storing data
 {
     _Window.create(sf::VideoMode(settings.WindowDimensions.x, settings.WindowDimensions.y), "Tablet visualizer", sf::Style::Close);
     _Window.setFramerateLimit(settings.FramerateLimit);
@@ -195,14 +205,10 @@ void Visualizer::_ApplySettings(Settings settings) // this function exist so Set
         )
     );
 
-    _Cursor = Cursor(
-        settings.CursorSize,
-        settings.CursorTrailDensity,
-        settings.CursorTrailSize,
-        settings.TrailCirclesLifetime,
-        _CursorTexture,
-        _CursorTrailTexture
+    Cursor cursor(
+        settings.CursorSize, settings.CursorTrailDensity, settings.CursorTrailSize, settings.TrailCirclesLifetime, _CursorTexture, _CursorTrailTexture
     );
+    _Cursor = cursor;
 
 
     _ScaledSizeOfTablet = {
@@ -217,7 +223,7 @@ void Visualizer::_ApplySettings(Settings settings) // this function exist so Set
     _TabletPlayfield.height   = _TabletPlayfield.height * _ScaledSizeOfTablet.y;
 }
 
-void Visualizer::_HandleEvents()
+void TVis::Visualizer::_HandleEvents()
 {
     if (_Window.pollEvent(_WindowEvent))
         switch (_WindowEvent.type)
@@ -232,7 +238,7 @@ void Visualizer::_HandleEvents()
         }
 }
 
-void Visualizer::Update()
+void TVis::Visualizer::Update()
 {   
     while (_Window.isOpen())
     {
@@ -247,7 +253,7 @@ void Visualizer::Update()
     }
 }
 
-void Visualizer::_Render()
+void TVis::Visualizer::_Render()
 {
     _Window.clear(sf::Color::Green);
     
@@ -257,7 +263,16 @@ void Visualizer::_Render()
     _Window.display();
 }
 
-sf::Vector2i Visualizer::_GetDesktopDimensions()
+sf::Vector2i TVis::Visualizer::_GetDesktopDimensionsLinux()
+{
+    Display* display = XOpenDisplay(NULL);
+    Screen*  screen  = DefaultScreenOfDisplay(display);
+
+    return sf::Vector2i(screen->width, screen->height);
+}
+
+#if WindowsOS == 1
+sf::Vector2i TVis::Visualizer::_GetDesktopDimensions()
 {
     RECT desktop;
 
@@ -267,3 +282,4 @@ sf::Vector2i Visualizer::_GetDesktopDimensions()
 
     return sf::Vector2i(desktop.right, desktop.bottom);
 }
+#endif

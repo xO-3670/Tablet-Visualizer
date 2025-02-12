@@ -1,7 +1,7 @@
 
 #include "../Cursor.hpp"
 
-Cursor::Cursor()
+TVis::Cursor::Cursor()
 : _CursorTrailTexturePtr(nullptr),
   _TrailCirclesLifetime(0),
   _TrailCirclesSize(0),
@@ -10,7 +10,7 @@ Cursor::Cursor()
 
 }
 
-Cursor::Cursor(float_t cursorSize, uint32_t trailDensity, float_t sizeOfTrailCircles, float_t trailCirclesLifetime ,sf::Texture& cursorTexture, sf::Texture& cursorTrailTexture)
+TVis::Cursor::Cursor(float_t cursorSize, uint32_t trailDensity, float_t sizeOfTrailCircles, float_t trailCirclesLifetime ,sf::Texture& cursorTexture, sf::Texture& cursorTrailTexture)
 : _TrailDensity(trailDensity),
   _TrailCirclesSize(sizeOfTrailCircles),
   _CursorTrailTexturePtr(&cursorTrailTexture),
@@ -24,7 +24,7 @@ Cursor::Cursor(float_t cursorSize, uint32_t trailDensity, float_t sizeOfTrailCir
     _TrailCircles.resize(trailDensity, TrailCircle(_CursorBody.getPosition(), _TrailCirclesSize,  _CursorTrailTexturePtr));
 }
 
-void Cursor::Update(sf::Vector2f cursorPosition)
+void TVis::Cursor::Update(sf::Vector2f cursorPosition)
 {
     _CursorBody.setPosition(cursorPosition);
 
@@ -39,12 +39,12 @@ void Cursor::Update(sf::Vector2f cursorPosition)
         _TrailCircles.push_back(TrailCircle(cursorPosition, _TrailCirclesSize, _CursorTrailTexturePtr));
 }
 
-const sf::Vector2f& Cursor::GetPosition()
+const sf::Vector2f& TVis::Cursor::GetPosition()
 {
     return _CursorBody.getPosition();
 }
 
-void Cursor::draw(sf::RenderTarget &target, sf::RenderStates states) const
+void TVis::Cursor::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
     for (int i = 0; i < _TrailCircles.size(); ++i)
     {
