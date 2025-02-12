@@ -1,14 +1,15 @@
 #ifndef CURSOR_HPP
 #define CURSOR_HPP
 
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 #include <vector>
 #include <algorithm>
 
 #include "TrailCircle.hpp"
 
-
+namespace TVis 
+{
 class Cursor : public sf::Drawable
 {
 public:
@@ -34,5 +35,6 @@ private:
     float_t  _TrailCirclesLifetime;
 
 };
+}
 
 #endif

@@ -1,6 +1,6 @@
 #include "../TrailCircle.hpp"
 
-TrailCircle::TrailCircle(sf::Vector2f cursorPosition, float& sizeOfTrailCircle, sf::Texture* trailTexture)
+TVis::TrailCircle::TrailCircle(sf::Vector2f cursorPosition, float& sizeOfTrailCircle, sf::Texture* trailTexture)
 {
     _Lifetime.restart();
 
@@ -12,17 +12,17 @@ TrailCircle::TrailCircle(sf::Vector2f cursorPosition, float& sizeOfTrailCircle, 
     _TrailBody.setPosition(cursorPosition);
 }
 
-const sf::Int32 TrailCircle::GetLifetime()
+const sf::Int32 TVis::TrailCircle::GetLifetime()
 {
     return _Lifetime.getElapsedTime().asMilliseconds();
 }
 
-const sf::Vector2f& TrailCircle::GetPosition()
+const sf::Vector2f& TVis::TrailCircle::GetPosition()
 {
     return _TrailBody.getPosition();
 }
 
-void TrailCircle::draw(sf::RenderTarget &target, sf::RenderStates states) const
+void TVis::TrailCircle::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
     target.draw(_TrailBody);
 }

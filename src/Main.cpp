@@ -3,7 +3,7 @@
 
 int main()
 {
-    Visualizer visualizer;
+    TVis::Visualizer visualizer;
 
     visualizer.Init();
 
