@@ -26,6 +26,15 @@ FetchContent_MakeAvailable(nlohmann_json)
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/src/*.cpp")
 
 add_executable(main ${SOURCES})
+
+if (UNIX)
+find_package(X11 REQUIRED)
+
+include_directories(${X11_INCLUDE_DIR})
+link_directories(${X11_LIBRARIES})
+target_link_libraries(main PRIVATE ${X11_LIBRARIES})
+endif (UNIX)
+
 target_link_libraries(main PRIVATE sfml-graphics)
 target_compile_features(main PRIVATE cxx_std_20)
 
