@@ -1,8 +1,8 @@
 #include "../Visualizer.hpp"
 
 
-TVis::Visualizer::Visualizer()
-: _IsTabletCustom(false),
+TVis::Visualizer::Visualizer() :
+  _IsTabletCustom(false),
   _DesktopDimensions({0,0})
 {
 }
@@ -10,6 +10,7 @@ TVis::Visualizer::Visualizer()
 void TVis::Visualizer::Init()
 {
 #if WindowsOS == 1
+
     if (_LoadSettingsFile())
         ShowWindow(GetConsoleWindow(), SW_HIDE);
     else
@@ -19,14 +20,15 @@ void TVis::Visualizer::Init()
         ShowWindow(GetConsoleWindow(), SW_HIDE);
 
     _DesktopDimensions = _GetDesktopDimensions();
+
 #endif
-#ifdef __unix__
+#if WindowsOS == 0
+
     if (!_LoadSettingsFile())
-    {
         std::cout << "Error while loading settings file!!!\n";
-    }
 
     _DesktopDimensions = _GetDesktopDimensionsLinux();
+
 #endif
 }
 
@@ -46,24 +48,24 @@ bool TVis::Visualizer::_LoadSettingsFile()
     settings.TrailCirclesFadingEffect = SettingsFile["TrailCirclesFadingEffect"];
 
     // float values
-    settings.CursorSize           = SettingsFile["CursorSize"];
-    settings.CursorTrailSize      = SettingsFile["CursorTrailSize"];
-    settings.TrailCirclesLifetime = SettingsFile["TrailCirclesLifetime"];
+    settings.CursorSize               = SettingsFile["CursorSize"];
+    settings.CursorTrailSize          = SettingsFile["CursorTrailSize"];
+    settings.TrailCirclesLifetime     = SettingsFile["TrailCirclesLifetime"];
 
     // uint32_t
-    settings.CursorTrailDensity   = SettingsFile["CursorTrailDensity"];
-    settings.FramerateLimit       = SettingsFile["FramerateLimit"];
+    settings.CursorTrailDensity       = SettingsFile["CursorTrailDensity"];
+    settings.FramerateLimit           = SettingsFile["FramerateLimit"];
 
     // uint8_t values
-    settings.TabletImageTransparency = SettingsFile["TabletImageTransparency"];
+    settings.TabletImageTransparency  = SettingsFile["TabletImageTransparency"];
 
     // string path
-    settings.CursorTexture        = SettingsFile["CursorImage"];
-    settings.CursorTrailTexture   = SettingsFile["CursorTrailImage"];
+    settings.CursorTexture            = SettingsFile["CursorImage"];
+    settings.CursorTrailTexture       = SettingsFile["CursorTrailImage"];
 
     settings.WindowDimensions = sf::Vector2i(
-            SettingsFile["WindowDimensions"].at(0),
-            SettingsFile["WindowDimensions"].at(1)
+        SettingsFile["WindowDimensions"].at(0),
+        SettingsFile["WindowDimensions"].at(1)
     );
 
     settings.TabletArea = sf::FloatRect(
