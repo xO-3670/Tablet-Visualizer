@@ -41,8 +41,9 @@ bool TVis::Visualizer::_LoadSettingsFile()
 	SettingsFile = nlohmann::json::parse(SettingsFileStream);
 
     // bool values
-    settings.CustomTablet         = SettingsFile["CustomTablet"];
-    settings.EnableErrors         = SettingsFile["EnableErrors"];
+    settings.CustomTablet             = SettingsFile["CustomTablet"];
+    settings.EnableErrors             = SettingsFile["EnableErrors"];
+    settings.TrailCirclesFadingEffect = SettingsFile["TrailCirclesFadingEffect"];
 
     // float values
     settings.CursorSize           = SettingsFile["CursorSize"];
@@ -206,7 +207,13 @@ void TVis::Visualizer::_ApplySettings(Settings settings) // this function exist 
     );
 
     Cursor cursor(
-        settings.CursorSize, settings.CursorTrailDensity, settings.CursorTrailSize, settings.TrailCirclesLifetime, _CursorTexture, _CursorTrailTexture
+        settings.CursorSize,
+        settings.CursorTrailDensity,
+        settings.CursorTrailSize,
+        settings.TrailCirclesLifetime,
+        settings.TrailCirclesFadingEffect,
+        _CursorTexture, 
+        _CursorTrailTexture
     );
     _Cursor = cursor;
 
