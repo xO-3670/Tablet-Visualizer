@@ -22,6 +22,11 @@ const sf::Vector2f& TVis::TrailCircle::GetPosition()
     return _TrailBody.getPosition();
 }
 
+void TVis::TrailCircle::SetColorAlpha(uint8_t newAlpha)
+{
+    _TrailBody.setFillColor(sf::Color(255,255,255,newAlpha));
+}
+
 void TVis::TrailCircle::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
     target.draw(_TrailBody);

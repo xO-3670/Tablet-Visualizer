@@ -16,6 +16,8 @@ public:
     const sf::Int32     GetLifetime();
     const sf::Vector2f& GetPosition();
 
+    void SetColorAlpha(uint8_t newAlpha);
+
 private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states)const;
 
