@@ -47,6 +47,7 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 | `CustomTabletImage`       | `string`        | Path to custom tablet image                              |
 | `CustomTablet`            | `bool`          | Condition if you're using custom tablet image            |
 | `EnableErrors`            | `bool`          | Condition if console with errors will show default: true |
+| `TrailCirclesFadingEffect`| `bool`          | Enable fading of trail circles like in osu default: true |
 | `CustomTabletSize`        |`sf::Vector2f`   | Real size of tablet in mm                                |
 | `CustomTabletImageOffset` |`sf::Vector2f`   | Offset in custom tablet image to active area             |
 | `CustomTabletActiveArea`  |`sf::Vector2f`   | Active area of custom tablet                             |
@@ -68,7 +69,7 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 - `TabletArea` to your custom tablet area. First two value are x, y offset and the last ones are width and height of tablet area
 
 
-## How to build
+# How to build
 
 - First step: Download source
 ```bash
@@ -79,5 +80,21 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 ```bash
   mkdir build && cd build
   cmake ..
+```
+
+## Linux build dependencies
+```bash
+libx11-dev 
+libxrandr-dev
+libxcursor-dev
+libxi-dev
+libudev-dev
+libfreetype-dev
+libflac-dev
+libvorbis-dev
+libgl1-mesa-dev
+libegl1-mesa-dev 
+libfreetype-dev
+libopenal-dev
 ```
 
