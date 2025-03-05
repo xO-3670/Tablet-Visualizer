@@ -24,32 +24,31 @@
 
 #include "Cursor.hpp"
 
-
 namespace TVis
 {
 struct Settings
 {
-    sf::Vector2i        WindowDimensions;
-    sf::FloatRect       TabletArea;
+    sf::Vector2i  WindowDimensions;
+    sf::FloatRect TabletArea;
 
-    float_t             CursorSize;
-    float_t             CursorTrailSize;
-    float_t             TrailCirclesLifetime;
-    uint32_t            CursorTrailDensity;
-    uint32_t            FramerateLimit;
-    std::string         CursorTexture;
-    std::string         CursorTrailTexture;
+    float_t       CursorSize;
+    float_t       CursorTrailSize;
+    float_t       TrailCirclesLifetime;
+    uint32_t      CursorTrailDensity;
+    uint32_t      FramerateLimit;
+    std::string   CursorTexture;
+    std::string   CursorTrailTexture;
 
-    uint8_t             TabletImageTransparency;
+    uint8_t       TabletImageTransparency;
 
-    bool                CustomTablet;
-    bool                EnableErrors;
-    bool                TrailCirclesFadingEffect;
+    bool          CustomTablet;
+    bool          EnableErrors;
+    bool          TrailCirclesFadingEffect;
 
-    sf::Vector2f        CustomTabletActiveArea;
-    sf::Vector2f        CustomTabletSize;
-    sf::Vector2f        CustomTabletImageOffset;
-    std::string         CustomTabletImage;
+    sf::Vector2f  CustomTabletActiveArea;
+    sf::Vector2f  CustomTabletSize;
+    sf::Vector2f  CustomTabletImageOffset;
+    std::string   CustomTabletImage;
 };
 
 class Visualizer
