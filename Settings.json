@@ -16,7 +16,7 @@
     "CursorImage": "Cursor.png",
     "CursorTrailImage": "CursorTrail.png",
     "CursorTrailDensity": 86,
-    "TrailCirclesLifetime": 75.0,
+    "TrailCirclesLifetime": 120.0,
     "TrailCirclesFadingEffect": true,
     "FramerateLimit": 120,
 

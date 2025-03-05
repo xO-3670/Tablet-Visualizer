@@ -40,8 +40,8 @@ void TVis::Cursor::Update(sf::Vector2f cursorPosition)
 
     for (int i = 0; i < _TrailCircles.size(); ++i)
     {
-        if (_TrailCirclesFadingEffect) // fading effect switch                                           // i've multiplied it by 4 to make fading slower
-            _TrailCircles.at(i).SetColorAlpha(255 - static_cast<uint8_t>((_TrailCircles[i].GetLifetime() / _TrailCirclesLifetime * 4) * 255));
+        if (_TrailCirclesFadingEffect) // fading effect switch
+            _TrailCircles.at(i).SetColorAlpha(255 - static_cast<uint8_t>((_TrailCircles[i].GetLifetime() / _TrailCirclesLifetime) * 255));
 
         if (_TrailCircles[i].GetLifetime() >= _TrailCirclesLifetime)
             _TrailCircles.erase(_TrailCircles.begin());
