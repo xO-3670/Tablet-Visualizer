@@ -1,5 +1,5 @@
-#ifndef TRAILCIRCLE
-#define TRAILCIRCLE
+#ifndef TRAILCIRCLE_HPP
+#define TRAILCIRCLE_HPP
 
 #include <SFML/Graphics.hpp>
 
@@ -28,4 +28,4 @@ private:
 };
 }
 
-#endif /* TRAILCIRCLE */
+#endif
