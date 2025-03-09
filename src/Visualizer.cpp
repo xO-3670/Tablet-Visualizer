@@ -1,5 +1,5 @@
-#include "../Visualizer.hpp"
 
+#include "../Visualizer.hpp"
 
 TVis::Visualizer::Visualizer() :
   _IsTabletCustom(false),
@@ -43,25 +43,26 @@ bool TVis::Visualizer::_LoadSettingsFile()
 	SettingsFile = nlohmann::json::parse(SettingsFileStream);
 
     // bool values
-    settings.CustomTablet             = SettingsFile["CustomTablet"];
-    settings.EnableErrors             = SettingsFile["EnableErrors"];
-    settings.TrailCirclesFadingEffect = SettingsFile["TrailCirclesFadingEffect"];
+    settings.CustomTablet                 = SettingsFile["CustomTablet"];
+    settings.EnableErrors                 = SettingsFile["EnableErrors"];
+    settings.TrailCirclesFadingEffect     = SettingsFile["TrailCirclesFadingEffect"];
+    settings.TrailCirclesSpacingOutEffect = SettingsFile["TrailCirclesSpacingOutEffect"];
 
     // float values
-    settings.CursorSize               = SettingsFile["CursorSize"];
-    settings.CursorTrailSize          = SettingsFile["CursorTrailSize"];
-    settings.TrailCirclesLifetime     = SettingsFile["TrailCirclesLifetime"];
+    settings.CursorSize                   = SettingsFile["CursorSize"];
+    settings.CursorTrailSize              = SettingsFile["CursorTrailSize"];
+    settings.TrailCirclesLifetime         = SettingsFile["TrailCirclesLifetime"];
 
     // uint32_t
-    settings.CursorTrailDensity       = SettingsFile["CursorTrailDensity"];
-    settings.FramerateLimit           = SettingsFile["FramerateLimit"];
+    settings.CursorTrailDensity           = SettingsFile["CursorTrailDensity"];
+    settings.FramerateLimit               = SettingsFile["FramerateLimit"];
 
     // uint8_t values
-    settings.TabletImageTransparency  = SettingsFile["TabletImageTransparency"];
+    settings.TabletImageTransparency      = SettingsFile["TabletImageTransparency"];
 
     // string path
-    settings.CursorTexture            = SettingsFile["CursorImage"];
-    settings.CursorTrailTexture       = SettingsFile["CursorTrailImage"];
+    settings.CursorTexture                = SettingsFile["CursorImage"];
+    settings.CursorTrailTexture           = SettingsFile["CursorTrailImage"];
 
     settings.WindowDimensions = sf::Vector2i(
         SettingsFile["WindowDimensions"].at(0),
@@ -214,6 +215,7 @@ void TVis::Visualizer::_ApplySettings(Settings settings) // this function exist 
         settings.CursorTrailSize,
         settings.TrailCirclesLifetime,
         settings.TrailCirclesFadingEffect,
+        settings.TrailCirclesSpacingOutEffect,
         _CursorTexture, 
         _CursorTrailTexture
     );
