@@ -1,5 +1,5 @@
-
 #include "../Visualizer.hpp"
+
 
 TVis::Visualizer::Visualizer() :
   _IsTabletCustom(false),
