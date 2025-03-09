@@ -18,6 +18,7 @@
     "CursorTrailDensity": 86,
     "TrailCirclesLifetime": 120.0,
     "TrailCirclesFadingEffect": true,
+    "TrailCirclesSpacingOutEffect": false,
     "FramerateLimit": 120,
 
     "CustomTablet": false,
