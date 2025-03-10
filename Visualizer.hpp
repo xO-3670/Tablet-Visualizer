@@ -44,6 +44,7 @@ struct Settings
     bool          CustomTablet;
     bool          EnableErrors;
     bool          TrailCirclesFadingEffect;
+    bool          TrailCirclesSpacingOutEffect;
 
     sf::Vector2f  CustomTabletActiveArea;
     sf::Vector2f  CustomTabletSize;

@@ -17,6 +17,7 @@ public:
     const sf::Vector2f& GetPosition();
 
     void SetColorAlpha(uint8_t newAlpha);
+    void SetScale(sf::Vector2f newScale);
 
 private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states)const;
