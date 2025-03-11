@@ -11,8 +11,8 @@
     ],
     "TabletImageTransparency": 255,
 
-    "CursorSize": 15,
-    "CursorTrailSize": 8,
+    "CursorSize": 1.00,
+    "CursorTrailSize": 1.00,
     "CursorImage": "Cursor.png",
     "CursorTrailImage": "CursorTrail.png",
     "CursorTrailDensity": 86,
