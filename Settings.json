@@ -18,7 +18,7 @@
     "CursorTrailDensity": 24,
     "TrailCirclesLifetime": 120.0,
     "TrailCirclesFadingEffect": true,
-    "FramerateLimit": 120,
+    "FramerateLimit": 165,
 
     "CustomTablet": false,
     "CustomTabletImage": "ctl-472-s.png",
