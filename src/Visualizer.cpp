@@ -47,7 +47,7 @@ bool TVis::Visualizer::_LoadSettingsFile()
     settings.EnableErrors             = SettingsFile["EnableErrors"];
     settings.TrailCirclesFadingEffect = SettingsFile["TrailCirclesFadingEffect"];
 
-    // float values                   // multiply times 10 so its same as in osu settings
+    // float values                   // multiply times 10 so 1.00 will be converted to program's size standard
     settings.CursorSize               = static_cast<float_t>(SettingsFile["CursorSize"])      * 10;
     settings.CursorTrailSize          = static_cast<float_t>(SettingsFile["CursorTrailSize"]) * 10;
     settings.TrailCirclesLifetime     = SettingsFile["TrailCirclesLifetime"];
