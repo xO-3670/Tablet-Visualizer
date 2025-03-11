@@ -48,6 +48,7 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 | `CustomTablet`            | `bool`          | Condition if you're using custom tablet image            |
 | `EnableErrors`            | `bool`          | Condition if console with errors will show default: true |
 | `TrailCirclesFadingEffect`| `bool`          | Enable fading of trail circles like in osu default: true |
+| `TrailCirclesSpacingOutEffect`| `bool`          | Enable spacing out trail circles default: false |
 | `CustomTabletSize`        |`sf::Vector2f`   | Real size of tablet in mm                                |
 | `CustomTabletImageOffset` |`sf::Vector2f`   | Offset in custom tablet image to active area             |
 | `CustomTabletActiveArea`  |`sf::Vector2f`   | Active area of custom tablet                             |
