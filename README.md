@@ -25,7 +25,7 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 
 - Modify cursor size, skin, and behavior (trail density, lifetime) in `Settings.json`
 
-- Graphics configurator, with it you can easily modify the `Settings.json` file (available in versions >= 1.3.0)
+- Graphical configurator, with it you can easily modify the `Settings.json` file (available in versions >= 1.3.0)
   
 ## Screenshots
 
@@ -33,7 +33,7 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 
 ![App Screenshot](Screenshot2.png)
 
-# New graphics configurator (versions >= 1.3.0)
+# New graphical configurator (versions >= 1.3.0)
 
 ![App Screenshot](Screenshot3.png)
 
