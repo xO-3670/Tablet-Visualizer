@@ -11,7 +11,7 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://choosealicense.com/licenses/gpl-3.0/)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/55a8b6fbec384a7c974e34ee04daf00d)](https://app.codacy.com/gh/xO-3670/Tablet-Visualizer/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-[![Release](https://img.shields.io/github/v/release/xO-3670/Tablet-Visualizer)](https://github.com/xO-3670/Tablet-Visualizer/releases/tag/1.2.1)
+[![Release](https://img.shields.io/github/v/release/xO-3670/Tablet-Visualizer)](https://github.com/xO-3670/Tablet-Visualizer/releases/tag/1.3.0)
 [![Build status](https://github.com/xO-3670/Tablet-Visualizer/actions/workflows/cmake-multi-platform.yml/badge.svg?branch=main&event=push)](https://github.com/xO-3670/Tablet-Visualizer/actions/workflows/cmake-multi-platform.yml)
 
 
@@ -24,13 +24,20 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 - You can change the default tablet and cursor image in the `Settings.json` file
 
 - Modify cursor size, skin, and behavior (trail density, lifetime) in `Settings.json`
+
+- Graphics configurator, with it you can easily modify the `Settings.json` file (available in versions >= 1.3.0)
+  
 ## Screenshots
 
 ![App Screenshot](Screenshot1.png)
 
 ![App Screenshot](Screenshot2.png)
 
-# How to edit Settings.json
+# New graphics configurator (versions >= 1.3.0)
+
+![App Screenshot](Screenshot3.png)
+
+# How to edit MANUALLY Settings.json
 
 | Parameter | Type          | Description or examples                                                    |
 | :------------------------ | :-------------- | :------------------------------------------------------- |
@@ -53,7 +60,7 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 | `CustomTabletImageOffset` |`sf::Vector2f`   | Offset in custom tablet image to active area             |
 | `CustomTabletActiveArea`  |`sf::Vector2f`   | Active area of custom tablet                             |
 
-### If you want to customize it you should set:
+### If you want to customize MANUALLY you should set in `Settings.json`:
 
 - `CustomTablet` to `true`
 
@@ -85,17 +92,17 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 
 ## Linux build dependencies
 ```bash
-libx11-dev 
-libxrandr-dev
-libxcursor-dev
-libxi-dev
-libudev-dev
-libfreetype-dev
-libflac-dev
-libvorbis-dev
-libgl1-mesa-dev
-libegl1-mesa-dev 
-libfreetype-dev
+libx11-dev \
+libxrandr-dev \
+libxcursor-dev \
+libxi-dev \
+libudev-dev \
+libfreetype-dev \
+libflac-dev \
+libvorbis-dev \
+libgl1-mesa-dev \
+libegl1-mesa-dev \
+libfreetype-dev \
 libopenal-dev
 ```
 
