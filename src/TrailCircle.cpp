@@ -1,5 +1,6 @@
 #include "../TrailCircle.hpp"
 
+
 TVis::TrailCircle::TrailCircle(sf::Vector2f cursorPosition, float& sizeOfTrailCircle, sf::Texture* trailTexture)
 {
     _Lifetime.restart();
@@ -25,6 +26,11 @@ const sf::Vector2f& TVis::TrailCircle::GetPosition()
 void TVis::TrailCircle::SetColorAlpha(uint8_t newAlpha)
 {
     _TrailBody.setFillColor(sf::Color(255,255,255,newAlpha));
+}
+
+void TVis::TrailCircle::SetScale(sf::Vector2f newScale)
+{
+    _TrailBody.setScale(newScale);
 }
 
 void TVis::TrailCircle::draw(sf::RenderTarget &target, sf::RenderStates states) const
