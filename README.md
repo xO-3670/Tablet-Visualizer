@@ -55,7 +55,7 @@ Tablet Visualizer is a lightweight application designed to function as an overla
 | `CustomTabletImageOffset` |`sf::Vector2f`   | Offset in custom tablet image to active area             |
 | `CustomTabletActiveArea`  |`sf::Vector2f`   | Active area of custom tablet                             |
 
-### If you want to customize MANUALLY you should set in `Settings.json`:
+### If you want to customize MANUALLY `Settings.json` you should set:
 
 - `CustomTablet` to `true`
 
