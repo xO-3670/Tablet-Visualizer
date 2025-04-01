@@ -21,6 +21,7 @@ public:
         float_t      trailCirclesLifetime,
         bool         trailCirclesFadingEffect,
         bool         TrailCirclesSpacingOutFadingEffect,
+        bool         TrailCirclesSpacingInEffect,
         sf::Texture& cursorTexture,
         sf::Texture& cursorTrailTexture
     );
@@ -45,6 +46,7 @@ private:
 
     bool     _TrailCirclesFadingEffect;
     bool     _TrailCirclesSpacingOutEffect;
+    bool     _TrailCirclesSpacingInEffect;
 
 };
 }

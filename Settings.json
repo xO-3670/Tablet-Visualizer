@@ -19,6 +19,7 @@
     "TrailCirclesLifetime": 120.0,
     "TrailCirclesFadingEffect": true,
     "TrailCirclesSpacingOutEffect": false,
+    "TrailCirclesSpacingInEffect": false,
     "FramerateLimit": 165,
 
     "CustomTablet": false,

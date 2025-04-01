@@ -47,6 +47,7 @@ bool TVis::Visualizer::_LoadSettingsFile()
     settings.EnableErrors                 = SettingsFile["EnableErrors"];
     settings.TrailCirclesFadingEffect     = SettingsFile["TrailCirclesFadingEffect"];
     settings.TrailCirclesSpacingOutEffect = SettingsFile["TrailCirclesSpacingOutEffect"];
+    settings.TrailCirclesSpacingInEffect = SettingsFile["TrailCirclesSpacingInEffect"];
 
     // float values                   // multiply times 10 so 1.00 will be converted to program's size standard
     settings.CursorSize               = static_cast<float_t>(SettingsFile["CursorSize"])      * 10;
@@ -216,6 +217,7 @@ void TVis::Visualizer::_ApplySettings(Settings settings) // this function exist 
         settings.TrailCirclesLifetime,
         settings.TrailCirclesFadingEffect,
         settings.TrailCirclesSpacingOutEffect,
+        settings.TrailCirclesSpacingInEffect,
         _CursorTexture, 
         _CursorTrailTexture
     );

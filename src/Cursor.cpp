@@ -18,6 +18,7 @@ TVis::Cursor::Cursor(
     float_t      trailCirclesLifetime,
     bool         TrailCirclesFadingEffect,
     bool         TrailCirclesSpacingOutFadingEffect,
+    bool         TrailCirclesSpacingInEffect,
     sf::Texture& cursorTexture,
     sf::Texture& cursorTrailTexture
 ) : 
@@ -26,7 +27,8 @@ TVis::Cursor::Cursor(
   _CursorTrailTexturePtr(&cursorTrailTexture),
   _TrailCirclesLifetime(trailCirclesLifetime),
   _TrailCirclesFadingEffect(TrailCirclesFadingEffect),
-  _TrailCirclesSpacingOutEffect(TrailCirclesSpacingOutFadingEffect)
+  _TrailCirclesSpacingOutEffect(TrailCirclesSpacingOutFadingEffect),
+  _TrailCirclesSpacingInEffect(TrailCirclesSpacingInEffect)
 {
     _CursorBody.setRadius   (cursorSize);
     _CursorBody.setOrigin   (_CursorBody.getRadius(), _CursorBody.getRadius());
@@ -47,6 +49,10 @@ void TVis::Cursor::Update(sf::Vector2f cursorPosition)
         if (_TrailCirclesSpacingOutEffect) // spacing out effect switch
         {
             float calculatedScale = (1000.0 - static_cast<float>((_TrailCircles[i].GetLifetime() / _TrailCirclesLifetime) * 1000.0));
+            _TrailCircles.at(i).SetScale({calculatedScale/1000, calculatedScale/1000});
+        } else if (_TrailCirclesSpacingInEffect && !_TrailCirclesSpacingOutEffect)
+        {
+            float calculatedScale = (0.0 + static_cast<float>((_TrailCircles[i].GetLifetime() / _TrailCirclesLifetime) * 1000.0));
             _TrailCircles.at(i).SetScale({calculatedScale/1000, calculatedScale/1000});
         }
 
