@@ -10,14 +10,21 @@ TVis::Visualizer::Visualizer() :
 void TVis::Visualizer::Init()
 {
 #if WindowsOS == 1
+    HWND consoleWindowW10 = GetConsoleWindow();
+    Sleep(2); // There needs to be delay because console widnow might not initialize in time and console will still appear in windows 11
+    HWND consoleWindowW11 = GetWindow(consoleWindowW10, GW_OWNER);
 
     if (_LoadSettingsFile())
-        ShowWindow(GetConsoleWindow(), SW_HIDE);
+    {
+        _HideConsole(consoleWindowW10, consoleWindowW11);
+    }
     else
         ShowWindow(GetConsoleWindow(), SW_SHOW);
 
     if (_EnableErrors == false) // Manually disable errors console in Settings.json
-        ShowWindow(GetConsoleWindow(), SW_HIDE);
+    {
+        _HideConsole(consoleWindowW10, consoleWindowW11);
+    }
 
     _DesktopDimensions = _GetDesktopDimensions();
 
@@ -294,5 +301,21 @@ sf::Vector2i TVis::Visualizer::_GetDesktopDimensions()
 	GetWindowRect(hDesktop, &desktop);
 
     return sf::Vector2i(desktop.right, desktop.bottom);
+}
+
+void TVis::Visualizer::_HideConsole(HWND& W10ConsoleHandle, HWND& W11ConsoleHandle)
+{
+    if (W11ConsoleHandle == NULL)
+        ShowWindow(GetConsoleWindow(), SW_HIDE);
+    else
+        ShowWindow(W11ConsoleHandle, SW_HIDE);
+}
+
+void TVis::Visualizer::_ShowConsole(HWND &W10ConsoleHandle, HWND &W11ConsoleHandle)
+{
+    if (W11ConsoleHandle == NULL)
+        ShowWindow(GetConsoleWindow(), SW_SHOW);
+    else
+        ShowWindow(W11ConsoleHandle, SW_SHOW);
 }
 #endif
