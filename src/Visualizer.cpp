@@ -1,5 +1,4 @@
 #include "../Visualizer.hpp"
-#include "Visualizer.hpp"
 
 
 TVis::Visualizer::Visualizer() :
