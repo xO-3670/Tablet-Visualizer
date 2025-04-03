@@ -74,6 +74,10 @@ private:
 #endif
 #if WindowsOS == 1
     sf::Vector2i _GetDesktopDimensions();
+    // Fix for console showing up in windows 11 even when disabled by ShowWindow(GetConsoleWindow(), SW_HIDE)
+    // Takes two handles of console one when on windows 10 and second when on 11
+    void         _HideConsole(HWND& W10ConsoleHandle, HWND& W11ConsoleHandle);
+    void         _ShowConsole(HWND& W10ConsoleHandle, HWND& W11ConsoleHandle);
 #endif
 
 private:
