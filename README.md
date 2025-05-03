@@ -24,13 +24,13 @@ Tablet Visualizer is a lightweight application designed to function as an overla
   
 ## Screenshots
 
-![App Screenshot](Screenshot1.png)
+![App Screenshot](resources/Screenshot1.png)
 
-![App Screenshot](Screenshot2.png)
+![App Screenshot](resources/Screenshot2.png)
 
 # New graphical configurator (versions >= 1.3.0)
 
-![App Screenshot](Screenshot3.png)
+![App Screenshot](resources/Screenshot3.png)
 
 # How to edit MANUALLY Settings.json
 
