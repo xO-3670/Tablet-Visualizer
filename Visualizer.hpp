@@ -1,5 +1,5 @@
-#ifndef VISUALIZER_HPP
-#define VISUALIZER_HPP
+#ifndef VISUALIZER
+#define VISUALIZER
 
 #include <SFML/Graphics.hpp>
 #include <nlohmann/json.hpp>
@@ -22,6 +22,7 @@
 #define WindowsOS 0
 #endif
 
+#include "EmbedWinIcon.hpp"
 #include "Cursor.hpp"
 
 namespace TVis
@@ -105,4 +106,4 @@ private:
 };
 }
 
-#endif
+#endif /* VISUALIZER */

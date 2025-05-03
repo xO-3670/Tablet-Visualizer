@@ -3,8 +3,15 @@
 
 TVis::Visualizer::Visualizer() :
   _IsTabletCustom(false),
+  _EnableErrors(true),
   _DesktopDimensions({0,0})
 {
+    sf::Image WindowIcon;
+    
+    if (WindowIcon.loadFromMemory(img, sizeof(img)))
+    {
+        _Window.setIcon(WindowIcon.getSize().x, WindowIcon.getSize().y, WindowIcon.getPixelsPtr());
+    }
 }
 
 void TVis::Visualizer::Init()
@@ -15,16 +22,12 @@ void TVis::Visualizer::Init()
     HWND consoleWindowW11 = GetWindow(consoleWindowW10, GW_OWNER);
 
     if (_LoadSettingsFile())
-    {
         _HideConsole(consoleWindowW10, consoleWindowW11);
-    }
     else
         ShowWindow(GetConsoleWindow(), SW_SHOW);
 
     if (_EnableErrors == false) // Manually disable errors console in Settings.json
-    {
         _HideConsole(consoleWindowW10, consoleWindowW11);
-    }
 
     _DesktopDimensions = _GetDesktopDimensions();
 
@@ -55,10 +58,10 @@ bool TVis::Visualizer::_LoadSettingsFile()
     settings.TrailCirclesFadingEffect     = SettingsFile["TrailCirclesFadingEffect"];
     settings.TrailCirclesSpacingOutEffect = SettingsFile["TrailCirclesSpacingOutEffect"];
 
-    // float values                   // multiply times 10 so 1.00 will be converted to program's size standard
-    settings.CursorSize               = static_cast<float_t>(SettingsFile["CursorSize"])      * 10;
-    settings.CursorTrailSize          = static_cast<float_t>(SettingsFile["CursorTrailSize"]) * 10;
-    settings.TrailCirclesLifetime     = SettingsFile["TrailCirclesLifetime"];
+    // float values                       // multiply times 10 so 1.00 will be converted to program's size standard
+    settings.CursorSize                   = static_cast<float_t>(SettingsFile["CursorSize"])      * 10;
+    settings.CursorTrailSize              = static_cast<float_t>(SettingsFile["CursorTrailSize"]) * 10;
+    settings.TrailCirclesLifetime         = SettingsFile["TrailCirclesLifetime"];
 
     // uint32_t
     settings.CursorTrailDensity           = SettingsFile["CursorTrailDensity"];
@@ -108,6 +111,9 @@ bool TVis::Visualizer::_LoadSettingsFile()
         if (!_TabletTexture.loadFromFile("ctl-472-s.png"))
         {
             std::cerr << "Could not load default tablet image!!!\n";
+            #if WindowsOS == 1
+            MessageBox(NULL, "Could not load default tablet image!!!", "Error", 0);
+            #endif
             LoadingStatus = false;
         }
     }
@@ -129,31 +135,46 @@ bool TVis::Visualizer::_CheckForErrors(Settings &settings, bool& loadingStatus)
     if (settings.FramerateLimit <= 0)
     {
         settings.FramerateLimit = 30;
-        std::cerr << "Framerate limit is 0 or lower!!!\nAutomatically setting to 30\n";
+        std::cerr << "Framerate limit is 0 or lower!!!\nAutomatically setting to 30!!!\n";
+        #if WindowsOS == 1
+        MessageBox(NULL, "Framerate limit is 0 or lower!!!\nAutomatically setting to 30!!!", "Error", 0);
+        #endif
         loadingStatus = false;
     }
 
     if (settings.CursorSize == 0)
     {
         std::cerr << "Incorrect cursor size!!!\n";
+        #if WindowsOS == 1
+        MessageBox(NULL, "Incorrect cursor size!!!", "Error", 0);
+        #endif
         loadingStatus = false;
     }
 
     if (settings.CursorTexture == "")
     {
         std::cerr << "Incorrect cursor image path!!!\n";
+        #if WindowsOS == 1
+        MessageBox(NULL, "Incorrect cursor image path!!!", "Error", 0);
+        #endif
         loadingStatus = false;
     }
 
     if (settings.WindowDimensions.x == 0 || settings.WindowDimensions.y == 0)
     {
         std::cerr << "Incorrect window dimensions!!!\n";
+        #if WindowsOS == 1
+        MessageBox(NULL, "Incorrect window dimensions!!!", "Error", 0);
+        #endif
         loadingStatus = false;
     }
 
     if (settings.TabletArea.width == 0 || settings.TabletArea.height == 0)
     {
         std::cerr << "Incorrect tablet dimensions!!!\n";
+        #if WindowsOS == 1
+        MessageBox(NULL, "Incorrect tablet dimensions!!!", "Error", 0);
+        #endif
         loadingStatus = false;
     }
 
@@ -162,24 +183,36 @@ bool TVis::Visualizer::_CheckForErrors(Settings &settings, bool& loadingStatus)
         if (settings.CustomTabletSize.x == 0 || settings.CustomTabletSize.y == 0)
         {
             std::cerr << "Incorrect custom tablet dimensions!!!\n";
+            #if WindowsOS == 1
+            MessageBox(NULL, "Incorrect custom tablet dimensions!!!", "Error", 0);
+            #endif
             loadingStatus = false;
         }
 
         if (settings.CustomTabletActiveArea.x == 0 || settings.CustomTabletActiveArea.y == 0)
         {
             std::cerr << "Incorrect custom tablet active area!!!\n";
+            #if WindowsOS == 1
+            MessageBox(NULL, "Incorrect custom tablet active area!!!", "Error", 0);
+            #endif
             loadingStatus = false;
         }
 
         if (!_TabletTexture.loadFromFile(settings.CustomTabletImage))
         {
             std::cerr << "Could not load custom tablet image!!!\n";
+            #if WindowsOS == 1
+            MessageBox(NULL, "Could not load custom tablet image!!!", "Error", 0);
+            #endif
             loadingStatus = false;
         }
 
         if (settings.CustomTabletImageOffset.x == 0 || settings.CustomTabletImageOffset.y == 0)
         {
             std::cerr << "Custom tablet image offset (x or y) is 0!!!\n";
+            #if WindowsOS == 1
+            MessageBox(NULL, "Custom tablet image offset (x or y) is 0!!!", "Error", 0);
+            #endif
             loadingStatus = false;
         }
     }
